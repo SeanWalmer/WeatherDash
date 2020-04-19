@@ -49,13 +49,13 @@ $(document).on('click', '.histEl', function(){
 // renders 5 day forcast cards
 function renderForcast(){
     $.ajax({
-            url: `http://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=b260ec26d45927cb9a1279afb667811f`,
+            url: `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=b260ec26d45927cb9a1279afb667811f`,
             method: "GET"
         }).then(function(response) {
             var fiveDayItems = [3, 11, 19, 27, 35]
             for(var i = 0; i < fiveDayItems.length; i++){
                 var date = response.list[fiveDayItems[i]].dt_txt.slice(0, 10).split("-")
-                var icon = `http://openweathermap.org/img/wn/${response.list[fiveDayItems[i]].weather[0].icon}@2x.png`
+                var icon = `https://openweathermap.org/img/wn/${response.list[fiveDayItems[i]].weather[0].icon}@2x.png`
                 var temp = ((response.list[fiveDayItems[i]].main.temp - 273.15) * 9/5 + 32).toFixed(2)
                 var humidity = response.list[fiveDayItems[i]].main.humidity
                 // empty the rerender forcast based on origin of function run
@@ -77,19 +77,19 @@ function renderForcast(){
 function renderCurrentWeather(){
     // api call for current weather
     $.ajax({
-            url: `http://api.openweathermap.org/data/2.5/weather?q=${place}&appid=b260ec26d45927cb9a1279afb667811f`,
+            url: `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=b260ec26d45927cb9a1279afb667811f`,
             method: "GET"
         }).then(function(response) {
             var lat = response.coord.lat
             var lon = response.coord.lon
             var uvi = ""
             var temp = ((response.main.temp - 273.15) * 9/5 + 32).toFixed(2)
-            var icon = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`
+            var icon = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`
             var humidity = response.main.humidity
             var wind = response.wind.speed
             // current weather gives lat/lon for uvi call to get date and uvi
             $.ajax({
-                url: `http://api.openweathermap.org/data/2.5/uvi?appid=b260ec26d45927cb9a1279afb667811f&lat=${lat}&lon=${lon}`,
+                url: `https://api.openweathermap.org/data/2.5/uvi?appid=b260ec26d45927cb9a1279afb667811f&lat=${lat}&lon=${lon}`,
                 method: "GET"
                 }).then(function(response) {
                     var date = response.date_iso.slice(0, 10).split("-")
