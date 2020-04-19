@@ -1,0 +1,20 @@
+header, main, footer {
+    padding-left: 300px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
+  .container {
+      width: 90%;
+  }
+  .move{
+    position: relative;
+    right: 20px;
+  }
+  .nudge{
+    position: relative;
+    right: 10px;
+  }

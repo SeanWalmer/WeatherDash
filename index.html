@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     
+    </style>
+<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- font awesome icons -->
+    <script src="https://kit.fontawesome.com/127766fc06.js" crossorigin="anonymous"></script>
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">  
+    <link rel="stylesheet" href="style.css">
+    <title>weather dash</title>
+</head>
+
+
+<body>
+<!-- navbar -->
+    <header>
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper indigo">
+                <div class="container">
+                    <i class="fas fa-map-marked"></i><a href="#" class="brand-logo">Weather Dash</a> 
+                    <a href="#" data-target="sidebar" class="sidenav-trigger"><i class="material-icons">menu</i></a> 
+                </div>
+            </nav>
+        </div>
+    </header>
+
+        <!-- sidebar -->
+    <ul id="sidebar" class="sidenav sidenav-fixed">
+        <form>
+            <div>
+                <div class="input-field">
+                    <input placeholder="Location" id="place" type="text" class="validate center">
+                    <div class="btn green waves-effect waves-light right" id="submit">
+                        submit
+                        <i class="material-icons white-text right">check</i>
+                    </div>
+                    <label for="location">Location</label>
+                </div>
+            </div>
+        </form>
+        <br>
+        <ul id="history">
+        </ul>
+    </ul>
+<!-- weather section -->
+    <main>
+        <section id="current-weather">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card blue lighten-2">
+                            <div class="card-content white-text">
+                                <span class="card-title">
+                                    <h1 id="city">Submit a location for weather information!</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="five-day">
+            <div class="container">
+                <div class="row"><h4>5 Day Forcast</h4></div>
+                <div class="row">
+                    <div id="day1" class="col s12 m4 l2 offset-l1"></div>
+                    <div id="day2" class="col s12 m4 l2"></div>
+                    <div id="day3" class="col s12 m4 l2"></div>
+                    <div id="day4" class="col s12 m4 offset-m2 l2"></div>
+                    <div id="day5" class="col s12 m4 l2"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+
+
+
+
+<!-- jquery and materialize JS files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+<!-- starts navbar functions -->
+    <script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+        $('.modal').modal();
+        $('select').formSelect();
+    });
+    </script>
+</body>
+</html>
